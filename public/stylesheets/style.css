@@ -52,7 +52,7 @@ a {
 .initial-content a {
 	display: inline-block;
 	font-size: 2em;
-	transition: all .5s ease-in-out;
+	transition: all .3s ease-in-out;
 }
 .initial-content a:hover {
 	transform: scale(1.1);
