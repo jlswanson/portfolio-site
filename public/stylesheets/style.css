@@ -1,8 +1,49 @@
+html, body {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background: rgba(10,10,10,1);
+	background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(36,36,36,1) 50%, rgba(10,10,10,1) 100%);
+	color: #fff;
+	font-family: "Cuprum", Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	height: 100%;
+	padding: 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+	margin: 0;
 }
 
 a {
-  color: #00B7FF;
+	color: #00B7FF;
+}
+
+.pink-accent {
+	color: rgb(242,145,185);
+}
+
+.body-content {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+.main-headline {
+	font-size: 3em;
+}
+.main-headline h1 {
+	animation: 2s fade-in;
+}
+.main-headline h2 {
+	animation: 6s fade-in;
+}
+
+@keyframes fade-in {
+	0% { opacity: 0; }
+	60% { opacity: 0; }
+	100% { opacity: 1; }
 }
