@@ -4,13 +4,13 @@ html, body {
 	height: 100%;
 }
 body {
-	background: rgba(10,10,10,1);
-	background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(24,24,24,1) 50%, rgba(10,10,10,1) 100%);
+	background: rgba(10, 10, 10, 1);
+	background: linear-gradient(90deg, rgba(10, 10, 10, 1) 0%, rgba(24, 24, 24, 1) 50%, rgba(10, 10, 10, 1) 100%);
 	color: #fff;
 	font-family: "Cuprum", Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	height: 100%;
-	padding: 50px;
+	margin: 0;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
@@ -21,32 +21,58 @@ a {
 }
 
 .pink-accent {
-	color: rgb(242,145,185);
+	color: rgb(242, 145, 185);
 }
 
-.body-content {
+.page-header {
+	background: rgba(33, 33, 33, .5);
+	padding: 1em;
+	position: sticky;
+	top: 0;
+}
+.nav-links-container {
 	display: flex;
-	align-items: center;
+}
+.nav-links {
+	margin-left: auto;
+}
+.nav-links a {
+	font-size: 20px;
+	text-decoration: none;
+	transition: all .3s ease-in-out;
+}
+.nav-links a:not(:last-of-type) {
+	margin-right: 1.5em;
+}
+.nav-links a:hover, .nav-links a:focus {
+	color: #fff;
+}
+.body-content {
 	height: 100%;
+	padding: 3em;
 }
 .initial-content {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
 }
 .main-headline {
 	font-size: 3em;
 }
-.main-headline .animate-first {
+.animate-first {
 	animation: 1.5s fade-in;
 }
-.main-headline .animate-second {
+.animate-second {
 	animation: 3.5s fade-in;
 }
-.initial-content .animate-third {
+.animate-third {
 	animation: 7s fade-in;
 }
-.initial-content .animate-fourth {
+.animate-fourth {
 	animation: 11s fade-in;
+}
+.initial-content .animate-fourth {
 	margin-top: 2em;
 }
 .initial-content a {
