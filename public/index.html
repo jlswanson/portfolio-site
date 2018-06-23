@@ -18,8 +18,8 @@
 	<header class="page-header animate-fourth">
 		<div class="nav-links-container">
 			<div class="nav-links">
-				<a href="#" class="pink-accent">WORK</a>
-				<a href="#" class="pink-accent">ABOUT ME</a>
+				<a href="#ui-design" class="pink-accent">WORK</a>
+				<!-- <a href="#" class="pink-accent">ABOUT ME</a> -->
 				<a href="#" class="pink-accent">CONTACT</a>
 			</div>
 		</div>
@@ -32,38 +32,39 @@
 			</div>
 			<h3 class="animate-third">I like to create stuff.</h3>
 			<div class="animate-fourth">
-				<a href="#"><i class="far fa-arrow-alt-circle-down"></i></a>
+				<a href="#ui-design"><i class="far fa-arrow-alt-circle-down"></i></a>
 			</div> 
 		</section>
 
 		<div id="all-content">
+			<!-- <div class="section-heading"><span>Work</span></div> -->
 			<section class="work-content">
-				<div class="work-image">
+				<div class="work-image blur" id="ui-design">
 					<img src="./images/ui-mockup.jpg" alt="ui mockup">
 				</div>
 				<div class="work-description-overlay">
 					<div class="work-description">
 						<h2>UI Design</h2>
-						<p>As part of a marketing initiative, this application required a user-friendly page for displaying aggregate data about a number of advertising campaigns run in tandem.  This part of the application needed to present information in a meaningful way to the end user, while ensuring no data was outright obscured.</p>
+						<p>Built as part of a marketing initiative, this application required a user-friendly page for displaying aggregate data about a number of advertising campaigns run in tandem.  This part of the application needed to present information in a meaningful way to the end user, while ensuring no data was outright obscured.</p>
 						<p>My solution was to break down the gathered data into three, more digestible categories: clicks, impressions, and cost.  Although this image captures only one view, each category displays the data relevant to it, and compares that data in a way that allows us to generate a set of descriptive charts and graphs.</p>
 						<span class="collapse pink-accent"><i class="far fa-arrow-alt-circle-down"></i>View image</span>
-						<span class="next pink-accent"><i class="far fa-arrow-alt-circle-down"></i>Next Sample</span>
+						<a href="#email-marketing"><span class="next pink-accent"><i class="far fa-arrow-alt-circle-down"></i>Next Sample</span></a>
 						<!-- <p class="expand pink-accent"><i class="far fa-arrow-alt-circle-left fa-2x"></i></p> -->
 					</div>
 				</div>
 			</section>
 
 			<section class="work-content">
-				<div class="work-image">
+				<div class="work-image blur" id="email-marketing">
 					<div class="multi-image-container">
-						<img src="./images/hp-email.jpg" alt="email-mockup">
+						<img src="./images/hp-email.jpg" alt="email mockup">
 						<img src="./images/ar-email.jpg" alt="email mockup">
 					</div>
 				</div>
 				<div class="work-description-overlay">
 					<div class="work-description">
 						<h2>Dynamic Email Marketing</h2>
-						<p>These emails consist of completely automated, dynamically-populated content, designed within product branding guidelines, which needs to be sent daily to a customerbase numbering in the thousands.  These designs had to accommodate a highly variable set of data, while still delivering value to their consumers and remaining compatible in a wide swath of email clients.</p>
+						<p>These emails consist of completely automated, dynamically-populated content, designed within product branding guidelines, which need to be sent daily to a customerbase numbering in the thousands.  These designs had to accommodate a highly variable set of data, while still delivering value to their consumers and remaining compatible across a wide swath of email clients.</p>
 						<span class="collapse pink-accent"><i class="far fa-arrow-alt-circle-down"></i>View image</span>
 						<span class="next pink-accent"><i class="far fa-arrow-alt-circle-down"></i>Next Sample</span>
 						<!-- <p class="expand pink-accent"><i class="far fa-arrow-alt-circle-left fa-2x"></i></p> -->
@@ -74,12 +75,63 @@
 	</div>
 </body>
 <script type="text/javascript">
+	// Select all links with hashes
+	$('a[href*="#"]')
+		// Remove links that don't actually link to anything
+		.not('[href="#"]')
+		.not('[href="#0"]')
+		.click(function(event) {
+		// On-page links
+		if (
+			location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+			&& 
+			location.hostname == this.hostname
+		) {
+		  // Figure out element to scroll to
+		  var target = $(this.hash);
+		  target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		  // Does a scroll target exist?
+		  if (target.length) {
+		    // Only prevent default if animation is actually gonna happen
+		    event.preventDefault();
+		    $('html, body').animate({
+		      scrollTop: target.offset().top
+		    }, 1000, function() {
+		      // Callback after animation
+		      // Must change focus!
+		      var $target = $(target);
+		      $target.focus();
+		      if ($target.is(":focus")) { // Checking if the target was focused
+		        return false;
+		      } else {
+		        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+		        $target.focus(); // Set focus again
+		      };
+		    });
+		  }
+		}
+	  });
 	$('.collapse').click(function() {
-		// changed my mind, come back to this
-		// $(this).closest('work-description-overlay').addClass('sidebar-collapsed');
-		// $(this).parent('.work-description-overlay').siblings('.work-image').addClass('sidebar-collapsed');
-		// $(this).siblings('p').css('display', 'none');
-		// $(this).siblings('h2').css('font-size', '1em');
+		if ( $(this).hasClass('expand') )
+		{
+			$(this).removeClass('expand');
+			$(this).html('<i class="far fa-arrow-alt-circle-down"></i>' + 'View Image');
+			$(this).closest('.work-description-overlay').removeClass('content-collapsed');
+			$(this).closest('.work-description-overlay').siblings('.work-image').addClass('blur');
+			$(this).siblings('p').fadeIn(500);
+			$(this).siblings('h2').fadeIn(500);		
+		}
+		else
+		{
+			$(this).addClass('expand');
+			$(this).html('<i class="far fa-arrow-alt-circle-up"></i>' + 'View Description');
+			$(this).closest('.work-description-overlay').addClass('content-collapsed');
+			$(this).closest('.work-description-overlay').siblings('.work-image').removeClass('blur');
+			$(this).siblings('p').fadeOut(500);
+			$(this).siblings('h2').fadeOut(500);
+		}
 	});
+	//$('.expand').click(function() {
+	//});
 </script>
 </html>
