@@ -19,9 +19,19 @@ h1, h2, h3, h4, h5, h6 {
 a {
 	color: #fff;
 }
+p {
+	font-family: "Nunito", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.6em;
+}
 
 .pink-accent {
 	color: rgb(242, 145, 185);
+}
+.collapse, .next {
+	font-family: "Cuprum", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
 }
 
 .page-header {
@@ -49,13 +59,13 @@ a {
 }
 .body-content {
 	height: 100%;
-	padding: 3em;
 }
 .initial-content {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	height: 100vh;
+	padding-left: 3em;
 }
 .main-headline {
 	font-size: 3em;
@@ -84,8 +94,81 @@ a {
 	transform: scale(1.1);
 }
 
+/* work */
+.work-content {
+	position: relative;
+	margin-bottom: 3em;
+}
+.work-image > img {
+	display: block;
+	margin: auto;
+	max-height: 100vh;
+	max-width: 100%;
+	filter: blur(5px);
+	transition: all .3s ease-in-out;
+}
+.work-image .multi-image-container {
+	text-align: center;
+}
+.work-image .multi-image-container img {
+	max-height: 100vh;
+	max-width: 100%;
+	filter: blur(5px);
+}
+.work-description-overlay {
+	background-color: rgba(10, 10, 10, .95);
+	height: calc(100vh + 20px);
+	position: absolute;
+	top: -10px;
+	left: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: all .6s ease-in-out;
+}
+.work-description {
+	padding: 0 3em;
+	width: 70%;
+}
+.work-description h2 {
+	color: rgb(242, 145, 185);
+	font-size: 3em;
+	text-transform: uppercase;
+}
+.work-description svg {
+    padding-right: .5em;
+}
+.work-description .collapse::after {
+	content:'//';
+	padding: 0 1em;
+}
+
+/* collapsed styles */
+.work-image.sidebar-collapsed img {
+	filter: blur(0px);
+}
+.work-description.sidebar-collapsed {
+	padding: .5em;
+	height: 0;
+}
+.work-description.sidebar-collapsed span:not(.expand), .work-description.sidebar-collapsed h2 {	
+	animation: .5s fade-out;
+	animation: .5s delay-none;
+}
+.work-description.sidebar-collapsed p.expand {	
+	animation: 2.5s fade-in;
+}
+
+
 @keyframes fade-in {
 	0% { opacity: 0; }
 	60% { opacity: 0; }
 	100% { opacity: 1; }
+}
+@keyframes fade-out {
+	0% { opacity: 1; }
+	60% { opacity: 1; }
+	100% { opacity: 0; };
 }

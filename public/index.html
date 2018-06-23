@@ -5,11 +5,14 @@
 
 	<link rel="stylesheet" href="stylesheets/style.css">
 
-	<!-- body font -->
-	<link href="https://fonts.googleapis.com/css?family=Cuprum:400,400i" rel="stylesheet">
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Cuprum:400|Nunito:300" rel="stylesheet">
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 	<!-- font awesome -->
-	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+	<script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 </head>
 <body>
 	<header class="page-header animate-fourth">
@@ -23,22 +26,60 @@
 	</header>
 
 	<div class="body-content">
-		<div class="initial-content">
+		<section class="initial-content">
 			<div class="main-headline">
 				<h1><span class="animate-first">Hi. </span><span class="animate-second">I'm <span class="pink-accent">Jessica.</span></span></h1>
 			</div>
-			<h3 class="animate-third">I like to build stuff.</h3>
+			<h3 class="animate-third">I like to create stuff.</h3>
 			<div class="animate-fourth">
-				<a href="#work-content"><i class="far fa-arrow-alt-circle-down"></i></a>
+				<a href="#"><i class="far fa-arrow-alt-circle-down"></i></a>
 			</div> 
-		</div>
+		</section>
 
-		<div id="work-content">
-			<div>
-				<img src="./images/hp-email.jpg" alt="email-mockup">
-				<img src="./images/ar-email.jpg" alt="email mockup">
-			</div>
+		<div id="all-content">
+			<section class="work-content">
+				<div class="work-image">
+					<img src="./images/ui-mockup.jpg" alt="ui mockup">
+				</div>
+				<div class="work-description-overlay">
+					<div class="work-description">
+						<h2>UI Design</h2>
+						<p>As part of a marketing initiative, this application required a user-friendly page for displaying aggregate data about a number of advertising campaigns run in tandem.  This part of the application needed to present information in a meaningful way to the end user, while ensuring no data was outright obscured.</p>
+						<p>My solution was to break down the gathered data into three, more digestible categories: clicks, impressions, and cost.  Although this image captures only one view, each category displays the data relevant to it, and compares that data in a way that allows us to generate a set of descriptive charts and graphs.</p>
+						<span class="collapse pink-accent"><i class="far fa-arrow-alt-circle-down"></i>View image</span>
+						<span class="next pink-accent"><i class="far fa-arrow-alt-circle-down"></i>Next Sample</span>
+						<!-- <p class="expand pink-accent"><i class="far fa-arrow-alt-circle-left fa-2x"></i></p> -->
+					</div>
+				</div>
+			</section>
+
+			<section class="work-content">
+				<div class="work-image">
+					<div class="multi-image-container">
+						<img src="./images/hp-email.jpg" alt="email-mockup">
+						<img src="./images/ar-email.jpg" alt="email mockup">
+					</div>
+				</div>
+				<div class="work-description-overlay">
+					<div class="work-description">
+						<h2>Dynamic Email Marketing</h2>
+						<p>These emails consist of completely automated, dynamically-populated content, designed within product branding guidelines, which needs to be sent daily to a customerbase numbering in the thousands.  These designs had to accommodate a highly variable set of data, while still delivering value to their consumers and remaining compatible in a wide swath of email clients.</p>
+						<span class="collapse pink-accent"><i class="far fa-arrow-alt-circle-down"></i>View image</span>
+						<span class="next pink-accent"><i class="far fa-arrow-alt-circle-down"></i>Next Sample</span>
+						<!-- <p class="expand pink-accent"><i class="far fa-arrow-alt-circle-left fa-2x"></i></p> -->
+					</div>
+				</div>
+			</section>
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	$('.collapse').click(function() {
+		// changed my mind, come back to this
+		// $(this).closest('work-description-overlay').addClass('sidebar-collapsed');
+		// $(this).parent('.work-description-overlay').siblings('.work-image').addClass('sidebar-collapsed');
+		// $(this).siblings('p').css('display', 'none');
+		// $(this).siblings('h2').css('font-size', '1em');
+	});
+</script>
 </html>
