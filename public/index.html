@@ -57,17 +57,29 @@
 
 			<section class="work-content">
 				<div class="work-image blur" id="email-marketing">
-					<div class="multi-image-container">
-						<img src="./images/hp-email.jpg" alt="email mockup">
-						<img src="./images/ar-email.jpg" alt="email mockup">
-					</div>
+					<img src="./images/email-marketing.png" alt="email marketing">
 				</div>
 				<div class="work-description-overlay">
 					<div class="work-description">
 						<h2>Dynamic Email Marketing</h2>
 						<p>These emails consist of completely automated, dynamically-populated content, designed within product branding guidelines, which need to be sent daily to a customerbase numbering in the thousands.  These designs had to accommodate a highly variable set of data, while still delivering value to their consumers and remaining compatible across a wide swath of email clients.</p>
 						<span class="collapse pink-accent"><i class="far fa-arrow-alt-circle-down"></i>View image</span>
-						<a href="#about-me"><span class="next pink-accent"><i class="far fa-arrow-alt-circle-down"></i>About me</span></a>
+						<a href="#web-design"><span class="next pink-accent"><i class="far fa-arrow-alt-circle-down"></i>Next Sample</span></a>
+					</div>
+				</div>
+			</section>
+
+			<section class="work-content">
+				<div class="work-image blur" id="web-design">
+					<img src="./images/web-design.png" alt="web design">
+				</div>
+				<div class="work-description-overlay">
+					<div class="work-description">
+						<h2>Web Design</h2>
+						<p>This is an example of a responsive website designed for a major furniture dealer on the east coast, built using Bootstrap.</p>
+						<p>I was in frequent contact with the customer about exactly how they wanted their new design to look, feel, and operate within the constraints of a proprietary ecommerce platform.  The sample shows both desktop and mobile device view, for a better understanding of how the functional parts of the build translate from one to the other.</p>
+						<span class="collapse pink-accent"><i class="far fa-arrow-alt-circle-down"></i>View image</span>
+						<a href="#about-me"><span class="next pink-accent"><i class="far fa-arrow-alt-circle-down"></i>About Me</span></a>
 					</div>
 				</div>
 			</section>
@@ -76,7 +88,7 @@
 				<div class="contact-info">
 					<h2>About Me</h2>
 					<p>A friend once described me as, "a jock who likes nerdy things."  I trust his opinion.</p>
-					<p>I have a passion for learning new things (which quickly shows, if you ever get me talking about my hobbies).  I like to create.  I enjoy pet projects that span from digital design to baking, to woodworking.  I enjoy getting outdoors, playing sports, and physical activity in general; this is starkly juxtaposed with my other favorite pasttime, which is sitting around on a Saturday, shirking chores, and playing video games.</p>
+					<p>I have a passion for learning new things (which quickly shows, if you ever get me talking about my hobbies).  I like to create.  I enjoy pet projects that span from digital design, to baking, to woodworking.  I enjoy getting outdoors, playing sports, and physical activity in general; this is starkly juxtaposed with my other favorite pasttime, which is sitting around on a Saturday, shirking chores, and playing video games.</p>
 					<p>Thank you for taking the time to learn a bit about me and what I do!</p>
 					<a href="#top"><span class="top pink-accent"><i class="far fa-arrow-alt-circle-up"></i>Back to top</span></a>
 				</div>
@@ -85,6 +97,7 @@
 	</div>
 </body>
 <script type="text/javascript">
+	// grabbed smoothscroll from here: css-tricks.com/snippets/jquery/smooth-scrolling
 	// Select all links with hashes
 	$('a[href*="#"]')
 		// Remove links that don't actually link to anything
@@ -121,24 +134,31 @@
 		  }
 		}
 	  });
+
+	//collapse and expand work sample overlay
 	$('.collapse').click(function() {
+		//check to see if we've already collapsed this
 		if ( $(this).hasClass('expand') )
 		{
 			$(this).removeClass('expand');
-			$(this).html('<i class="far fa-arrow-alt-circle-down"></i>' + 'View Image');
+			$(this).html('<i class="far fa-arrow-alt-circle-down"></i>' + 'View Image'); //swap the arrow and text
 			$(this).closest('.work-description-overlay').removeClass('content-collapsed');
+			//delay this
+			$(this).closest('.work-description').removeClass('collapsed-styles');
 			$(this).closest('.work-description-overlay').siblings('.work-image').addClass('blur');
 			$(this).siblings('p').fadeIn(500);
-			$(this).siblings('h2').fadeIn(500);		
+			//$(this).siblings('h2').fadeIn(500);
 		}
 		else
 		{
 			$(this).addClass('expand');
 			$(this).html('<i class="far fa-arrow-alt-circle-up"></i>' + 'View Description');
 			$(this).closest('.work-description-overlay').addClass('content-collapsed');
+			//delay this
+			$(this).closest('.work-description').addClass('collapsed-styles');
 			$(this).closest('.work-description-overlay').siblings('.work-image').removeClass('blur');
 			$(this).siblings('p').fadeOut(500);
-			$(this).siblings('h2').fadeOut(500);
+			//$(this).siblings('h2').fadeOut(500);
 		}
 	});
 	//$('.expand').click(function() {

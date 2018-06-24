@@ -110,13 +110,12 @@ p {
 /* work */
 .work-content {
 	position: relative;
-	margin-bottom: 3em;
 }
-.work-image > img {
+.work-image img {
 	display: block;
-	margin: auto;
 	max-height: 100vh;
 	max-width: 100%;
+	margin: 10px auto;
 	transition: all .3s ease-in-out;
 }
 .work-image .multi-image-container {
@@ -125,9 +124,11 @@ p {
 .work-image .multi-image-container img {
 	max-height: 100vh;
 	max-width: 100%;
+	margin: 10px 0;
 }
 .work-description-overlay {
 	background-color: rgba(10, 10, 10, .95);
+	border-top: 3px solid rgb(242, 145, 185);
 	height: calc(100vh + 20px);
 	position: absolute;
 	top: -10px;
@@ -172,6 +173,14 @@ p {
 	height: 8vh;
 	position: absolute;
 	top: 92vh;
+}
+.collapsed-styles.work-description {
+	display: flex;
+	align-items: center;
+}
+.collapsed-styles.work-description h2 {
+	font-size: 2em;
+	padding-right: 1em;
 }
 
 /* contact */
