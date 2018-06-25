@@ -140,28 +140,28 @@
 		//check to see if we've already collapsed this
 		if ( $(this).hasClass('expand') )
 		{
+			$(this).siblings('h2').fadeOut(1);
 			$(this).removeClass('expand');
 			$(this).html('<i class="far fa-arrow-alt-circle-down"></i>' + 'View Image'); //swap the arrow and text
 			$(this).closest('.work-description-overlay').removeClass('content-collapsed');
-			//delay this
 			$(this).closest('.work-description').removeClass('collapsed-styles');
-			$(this).closest('.work-description-overlay').siblings('.work-image').addClass('blur');
+			window.setTimeout(() => {
+				$(this).closest('.work-description-overlay').siblings('.work-image').addClass('blur');
+			}, 500);
 			$(this).siblings('p').fadeIn(500);
-			//$(this).siblings('h2').fadeIn(500);
+			$(this).siblings('h2').fadeIn(500);
 		}
 		else
 		{
 			$(this).addClass('expand');
 			$(this).html('<i class="far fa-arrow-alt-circle-up"></i>' + 'View Description');
 			$(this).closest('.work-description-overlay').addClass('content-collapsed');
-			//delay this
-			$(this).closest('.work-description').addClass('collapsed-styles');
+			window.setTimeout(() => {
+				$(this).closest('.work-description').addClass('collapsed-styles');
+			}, 500);
 			$(this).closest('.work-description-overlay').siblings('.work-image').removeClass('blur');
 			$(this).siblings('p').fadeOut(500);
-			//$(this).siblings('h2').fadeOut(500);
 		}
 	});
-	//$('.expand').click(function() {
-	//});
 </script>
 </html>

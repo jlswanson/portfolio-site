@@ -98,17 +98,10 @@ p {
 .initial-content a svg {
 	padding-right: .5em;
 }
-/* .initial-content a {
-	display: inline-block;
-	font-size: 14px;
-	transition: all .3s ease-in-out;
-}
-.initial-content a:hover svg {
-	transform: scale(1.1);
-} */
 
 /* work */
 .work-content {
+	height: 100vh;
 	position: relative;
 }
 .work-image img {
@@ -148,10 +141,6 @@ p {
 	text-decoration: none;
 	transition: all .3s ease-in-out;
 }
-/* .work-description a:hover svg {
-	text-decoration: none;
-	transform: scale(1.1);
-} */
 .work-description h2 {
 	color: rgb(242, 145, 185);
 	font-size: 3em;
