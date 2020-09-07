@@ -26,7 +26,7 @@ p {
 .pink-accent {
 	color: rgb(242, 145, 185);
 }
-.collapse, .next, .top, .initial-links {
+.collapse, .next, .prev, .top, .initial-links {
 	cursor: pointer;
 	font-family: "Cuprum", Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -149,7 +149,7 @@ p {
 .work-description svg {
     padding-right: .5em;
 }
-.work-description .collapse::after {
+.work-description a:not(:last-of-type)::after {
 	content:'//';
 	padding: 0 1em;
 }
